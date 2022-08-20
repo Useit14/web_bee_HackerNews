@@ -13,20 +13,21 @@ const NewsItem: FC<FeedItem> = (props) => {
       color: gray;
     }
   `;
+
   return (
     <Container className="justify-content-center">
       <Row>
         <Col md={1}>{props.index}.</Col>
         <Col md={11}>
           <Row>
-            <Col md={6}>
+            <Col md={7}>
               <TitleNew>
                 <Link to={`/item/${props.id}`}>{props.title}</Link>
               </TitleNew>
             </Col>
           </Row>
           <Row>
-            <Col md={1}>{props.points} points</Col>
+            <Col md={2}>{props.points} points</Col>
             <Col md={2}>by {props.user}</Col>
             <Col md={3}>{props.time_ago}</Col>
           </Row>

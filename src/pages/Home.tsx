@@ -1,5 +1,4 @@
 import React from "react";
-import { ContextData } from "../ContextData";
 import Container from "react-bootstrap/Container";
 import NewsItems from "../components/NewsItems";
 

@@ -36,3 +36,16 @@ export interface IObjCompare {
 export interface ICompare {
   (a: IObjCompare, b: IObjCompare): number;
 }
+
+export interface IComment {
+  [id: number]: boolean;
+}
+
+export interface IContextComment {
+  comment: IComment;
+  setComment: (par: IComment) => void;
+}
+export interface IContextFeedItem {
+  data: FeedItem[];
+  setData: (par: FeedItem[]) => void;
+}
