@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b3235c2b-1d00-4eed-be6b-284b271bc6f6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/robots.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/react-router-dom.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/styled-components.d.ts" afterDir="false" />
-    </list>
+    <list default="true" id="b3235c2b-1d00-4eed-be6b-284b271bc6f6" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,6 +14,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2DeoCPAJn2ytuvsTwBnirxW3DR4" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -60,6 +52,7 @@
       <option name="presentableId" value="Default" />
       <updated>1661068790792</updated>
       <workItem from="1661068795012" duration="4515000" />
+      <workItem from="1661073989527" duration="411000" />
     </task>
     <servers />
   </component>
