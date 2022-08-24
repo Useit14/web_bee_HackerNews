@@ -5,19 +5,19 @@ import Col from "react-bootstrap/Col";
 import styled from "styled-components";
 import Container from "react-bootstrap/Container";
 
-const Header = () => {
-  const TitleHeader = styled.div`
-    a {
-      text-decoration: none;
-      color: black;
-      font-weight: bolder;
-    }
-  `;
-  const Logo = styled.img`
-    margin-bottom: 3%;
-    margin-right: 2%;
-  `;
+const TitleHeader = styled.div`
+  a {
+    text-decoration: none;
+    color: black;
+    font-weight: bolder;
+  }
+`;
+const Logo = styled.img`
+  margin-bottom: 3%;
+  margin-right: 2%;
+`;
 
+const Header = () => {
   return (
     <Container className="bg-warning">
       <Row className="justify-content-center">
@@ -26,7 +26,7 @@ const Header = () => {
         </Col>
         <Col md={2}>
           <TitleHeader>
-            <Link to="/home">Hacker News</Link>
+            <Link to="/">Hacker News</Link>
           </TitleHeader>
         </Col>
       </Row>

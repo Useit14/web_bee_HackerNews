@@ -9,8 +9,8 @@ export const compare: ICompare = (a, b) => {
   if (isNaN(compareHour1)) {
     compareHour1 = 1;
   }
-  let compareWord = a["time_ago"].split(" ")[1];
-  let compareWord1 = b["time_ago"].split(" ")[1];
+  const compareWord = a["time_ago"].split(" ")[1];
+  const compareWord1 = b["time_ago"].split(" ")[1];
   if (compareWord[0] === compareWord1[0]) {
     if (compareHour < compareHour1) {
       return -1;

@@ -6,51 +6,55 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import { ContextComments } from "../ContextData";
 import { getContent } from "../functions/getContent";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getItem } from "../hooks/getItem";
 
+const LinkInnerComment = styled.a`
+  text-decoration: none;
+  cursor: pointer;
+  color: gray;
+`;
+const Button = styled.a`
+  img {
+    margin-top: 3%;
+  }
+  text-decoration: none;
+  cursor: pointer;
+`;
+const Comment = styled.div`
+  margin-top: 3%;
+  margin-left: 3%;
+`;
+const Line = styled.div`
+  border-bottom: 1px solid gray;
+`;
+const TitleHeader = styled.a`
+  text-decoration: none;
+  color: black;
+  font-weight: bolder;
+`;
+const SmallText = styled.p`
+  color: gray;
+  font-weight: lighter;
+`;
+
 const Comments = () => {
-  const LinkInnerComment = styled.a`
-    text-decoration: none;
-    cursor: pointer;
-    color: gray;
-  `;
-  const Button = styled.a`
-    img {
-      margin-top: 3%;
-    }
-    text-decoration: none;
-    cursor: pointer;
-  `;
-  const Comment = styled.div`
-    margin-top: 1%;
-    border-bottom: 1px solid gray;
-  `;
-  const InnerComment = styled.div`
-    margin-left: 5%;
-  `;
-  const TitleHeader = styled.a`
-    text-decoration: none;
-    color: black;
-    font-weight: bolder;
-  `;
-  const SmallText = styled.p`
-    color: gray;
-    font-weight: lighter;
-  `;
   const navigate = useNavigate();
   const { comment, setComment } = useContext(ContextComments);
   const [data, setData] = useState<Item>();
+  let idInterval: NodeJS.Timer;
+  const { id } = useParams();
 
   useEffect(() => {
-    getItem(window.location.pathname).then((e) => setData(e));
-    setInterval(() => {
-      getItem(window.location.pathname).then((e) => setData(e));
+    clearInterval(idInterval);
+    getItem(id).then((data) => setData(data));
+    idInterval = setInterval(() => {
+      getItem(id).then((data) => setData(data));
     }, 60000);
   }, []);
 
   const reFetch = () => {
-    getItem(window.location.pathname).then((e) => setData(e));
+    getItem(id).then((e) => setData(e));
   };
 
   const handlerClick = (id: number, visible: boolean) => {
@@ -61,19 +65,20 @@ const Comments = () => {
   };
 
   const goBack = () => {
-    navigate(-1);
+    navigate("/");
   };
 
-  const getInnerComments: (comments: Item, level: number) => React.ReactNode = (
-    comments,
-    level
-  ) => {
+  const getInnerComments: (
+    comments: Item | undefined,
+    level: number,
+    isInner?: boolean
+  ) => React.ReactNode = (comments, level, isInner = true) => {
     return comments?.comments.map((item: Item) => {
       if (item.level > level) {
         return;
       }
       return (
-        <InnerComment>
+        <Comment>
           <Row>
             <Col md={3} xl={2} sm={1} col={1} ld={2}>
               <SmallText>{item.user}</SmallText>
@@ -93,13 +98,10 @@ const Comments = () => {
           </Row>
           <Row>{getContent(item.content)}</Row>
           <Row>
-            {comment?.[item.id] === true ? (
-              getInnerComments(item, item.level + 1)
-            ) : (
-              <></>
-            )}
+            {comment?.[item.id] && getInnerComments(item, item.level + 1)}
           </Row>
-        </InnerComment>
+          {!isInner && <Line />}
+        </Comment>
       );
     });
   };
@@ -137,37 +139,38 @@ const Comments = () => {
         </Row>
       </Container>
       <Container>
-        {data?.comments.map((item) => {
-          return (
-            <Comment>
-              <Row>
-                <Col md={2} xl={2} sm={2} lg={2}>
-                  <SmallText>{item.user}</SmallText>
-                </Col>
-                <Col md={3} xl={3} sm={3} lg={3}>
-                  <SmallText>{item.time_ago}</SmallText>
-                </Col>
-                <Col md={1} xl={1} sm={1} col={1}>
-                  <LinkInnerComment
-                    onClick={() => {
-                      handlerClick(item.id, true);
-                    }}
-                  >
-                    {item.comments_count > 1 ? "[+]" : ""}
-                  </LinkInnerComment>
-                </Col>
-              </Row>
-              <Row>{getContent(item.content)}</Row>
-              <Row>
-                {comment?.[item.id] === true ? (
-                  getInnerComments(item, item.level + 1)
-                ) : (
-                  <></>
-                )}
-              </Row>
-            </Comment>
-          );
-        })}
+        {/*{data?.comments.map((item) => {*/}
+        {/*  return (*/}
+        {/*    <Comment>*/}
+        {/*      <Row>*/}
+        {/*        <Col md={2} xl={2} sm={2} lg={2}>*/}
+        {/*          <SmallText>{item.user}</SmallText>*/}
+        {/*        </Col>*/}
+        {/*        <Col md={3} xl={3} sm={3} lg={3}>*/}
+        {/*          <SmallText>{item.time_ago}</SmallText>*/}
+        {/*        </Col>*/}
+        {/*        <Col md={1} xl={1} sm={1} col={1}>*/}
+        {/*          <LinkInnerComment*/}
+        {/*            onClick={() => {*/}
+        {/*              handlerClick(item.id, true);*/}
+        {/*            }}*/}
+        {/*          >*/}
+        {/*            {item.comments_count > 1 ? "[+]" : ""}*/}
+        {/*          </LinkInnerComment>*/}
+        {/*        </Col>*/}
+        {/*      </Row>*/}
+        {/*      <Row>{getContent(item.content)}</Row>*/}
+        {/*      <Row>*/}
+        {/*        {comment?.[item.id] === true ? (*/}
+        {/*          getInnerComments(item, item.level + 1)*/}
+        {/*        ) : (*/}
+        {/*          <></>*/}
+        {/*        )}*/}
+        {/*      </Row>*/}
+        {/*    </Comment>*/}
+        {/*  );*/}
+        {/*})}*/}
+        {getInnerComments(data, 1, false)}
       </Container>
     </Container>
   );

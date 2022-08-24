@@ -6,14 +6,14 @@ import Col from "react-bootstrap/Col";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-const NewsItem: FC<FeedItem> = (props) => {
-  const TitleNew = styled.div`
-    a {
-      text-decoration: none;
-      color: gray;
-    }
-  `;
+const TitleNew = styled.div`
+  a {
+    text-decoration: none;
+    color: gray;
+  }
+`;
 
+const NewsItem: FC<FeedItem> = (props) => {
   return (
     <Container className="justify-content-center">
       <Row>

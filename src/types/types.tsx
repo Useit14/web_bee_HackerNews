@@ -29,23 +29,23 @@ export interface Item {
   comments_count: number;
 }
 
-export interface IObjCompare {
+export interface ObjCompare {
   time_ago: string;
 }
 
 export interface ICompare {
-  (a: IObjCompare, b: IObjCompare): number;
+  (a: ObjCompare, b: ObjCompare): number;
 }
 
-export interface IComment {
+export interface Comment {
   [id: number]: boolean;
 }
 
-export interface IContextComment {
-  comment: IComment;
-  setComment: (par: IComment) => void;
+export interface ContextComment {
+  comment: Comment;
+  setComment: (par: Comment) => void;
 }
-export interface IContextFeedItem {
+export interface ContextFeedItem {
   data: FeedItem[];
   setData: (par: FeedItem[]) => void;
 }
