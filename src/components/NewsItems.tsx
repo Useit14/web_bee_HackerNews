@@ -1,10 +1,10 @@
-import React, { FC, useContext, useEffect } from "react";
+import React, { FC, useEffect, useState } from "react";
 import NewsItem from "./NewsItem";
-import { ContextData } from "../ContextData";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import styled from "styled-components";
 import { getFeedItems } from "../hooks/getFeedItems";
+import { FeedItem } from "../types/types";
 
 const Button = styled.a`
   img {
@@ -15,17 +15,20 @@ const Button = styled.a`
 `;
 
 const NewsItems: FC = () => {
-  const { data, setData } = useContext(ContextData);
+  const [data, setData] = useState<FeedItem[]>();
 
   let idInterval: NodeJS.Timer;
 
   useEffect(() => {
-    clearInterval(idInterval);
     getFeedItems().then((data) => setData(data));
     idInterval = setInterval(() => {
       setData([]);
       getFeedItems().then((data) => setData(data));
     }, 60000);
+
+    return () => {
+      clearInterval(idInterval);
+    };
   }, []);
 
   const reFetch = () => {
@@ -35,7 +38,7 @@ const NewsItems: FC = () => {
   return (
     <Row>
       <Col md={11} xl={11} sm={11} col={11}>
-        {data.map((item, index) => (
+        {data?.map((item, index) => (
           <NewsItem
             key={item.id}
             index={index + 1}

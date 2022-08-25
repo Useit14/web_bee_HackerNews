@@ -1,6 +1,6 @@
-import { ICompare } from "../types/types";
+import { Compare } from "../types/types";
 
-export const compare: ICompare = (a, b) => {
+export const compare: Compare = (a, b) => {
   let compareHour = parseInt(a["time_ago"]);
   let compareHour1 = parseInt(b["time_ago"]);
   if (isNaN(compareHour)) {

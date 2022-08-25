@@ -24,7 +24,7 @@ export interface Item {
   type: string;
   url?: string;
   domain?: string;
-  comments: Item[]; // Comments are items too
+  comments: Item[];
   level: number;
   comments_count: number;
 }
@@ -33,7 +33,7 @@ export interface ObjCompare {
   time_ago: string;
 }
 
-export interface ICompare {
+export interface Compare {
   (a: ObjCompare, b: ObjCompare): number;
 }
 
@@ -44,8 +44,4 @@ export interface Comment {
 export interface ContextComment {
   comment: Comment;
   setComment: (par: Comment) => void;
-}
-export interface ContextFeedItem {
-  data: FeedItem[];
-  setData: (par: FeedItem[]) => void;
 }

@@ -46,11 +46,14 @@ const Comments = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    clearInterval(idInterval);
     getItem(id).then((data) => setData(data));
     idInterval = setInterval(() => {
       getItem(id).then((data) => setData(data));
     }, 60000);
+
+    return () => {
+      clearInterval(idInterval);
+    };
   }, []);
 
   const reFetch = () => {
@@ -138,9 +141,7 @@ const Comments = () => {
           </Col>
         </Row>
       </Container>
-      <Container>
-        {getInnerComments(data, 1, false)}
-      </Container>
+      <Container>{getInnerComments(data, 1, false)}</Container>
     </Container>
   );
 };
