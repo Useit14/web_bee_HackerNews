@@ -139,37 +139,6 @@ const Comments = () => {
         </Row>
       </Container>
       <Container>
-        {/*{data?.comments.map((item) => {*/}
-        {/*  return (*/}
-        {/*    <Comment>*/}
-        {/*      <Row>*/}
-        {/*        <Col md={2} xl={2} sm={2} lg={2}>*/}
-        {/*          <SmallText>{item.user}</SmallText>*/}
-        {/*        </Col>*/}
-        {/*        <Col md={3} xl={3} sm={3} lg={3}>*/}
-        {/*          <SmallText>{item.time_ago}</SmallText>*/}
-        {/*        </Col>*/}
-        {/*        <Col md={1} xl={1} sm={1} col={1}>*/}
-        {/*          <LinkInnerComment*/}
-        {/*            onClick={() => {*/}
-        {/*              handlerClick(item.id, true);*/}
-        {/*            }}*/}
-        {/*          >*/}
-        {/*            {item.comments_count > 1 ? "[+]" : ""}*/}
-        {/*          </LinkInnerComment>*/}
-        {/*        </Col>*/}
-        {/*      </Row>*/}
-        {/*      <Row>{getContent(item.content)}</Row>*/}
-        {/*      <Row>*/}
-        {/*        {comment?.[item.id] === true ? (*/}
-        {/*          getInnerComments(item, item.level + 1)*/}
-        {/*        ) : (*/}
-        {/*          <></>*/}
-        {/*        )}*/}
-        {/*      </Row>*/}
-        {/*    </Comment>*/}
-        {/*  );*/}
-        {/*})}*/}
         {getInnerComments(data, 1, false)}
       </Container>
     </Container>

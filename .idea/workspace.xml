@@ -2,21 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b3235c2b-1d00-4eed-be6b-284b271bc6f6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/functions/getContent.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ContextData.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ContextData.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Comments.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Comments.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/NewsItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NewsItem.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/NewsItems.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NewsItems.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/functions/getContent.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hooks/getFeedItems.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/getFeedItems.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hooks/getItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/getItem.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/types.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/types.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +59,8 @@
       <workItem from="1661180252064" duration="143000" />
       <workItem from="1661243617076" duration="555000" />
       <workItem from="1661342143541" duration="3683000" />
-      <workItem from="1661364008818" duration="3881000" />
+      <workItem from="1661364008818" duration="4610000" />
+      <workItem from="1661415721025" duration="24000" />
     </task>
     <servers />
   </component>
